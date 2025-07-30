@@ -16,6 +16,30 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `cadena`
+--
+
+DROP TABLE IF EXISTS `cadena`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `cadena` (
+  `id_cad` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_cad` varchar(100) NOT NULL COMMENT 'Nombre de la cadena/marca',
+  PRIMARY KEY (`id_cad`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Tabla de cadenas/marcas para agrupar planteles y equipos';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `cadena`
+--
+
+LOCK TABLES `cadena` WRITE;
+/*!40000 ALTER TABLE `cadena` DISABLE KEYS */;
+INSERT INTO `cadena` VALUES (1,'AHJ ENDE');
+/*!40000 ALTER TABLE `cadena` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cita`
 --
 
@@ -56,6 +80,7 @@ LOCK TABLES `cita` WRITE;
 INSERT INTO `cita` VALUES (143,'2025-07-25','09:00:00','sonido','555-2001',2,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',3),(144,'2025-07-25','11:30:00','Entrevista candidato Senior','555-2002',2,NULL,NULL,1,'CITA NO ATENDIDA','CITA EFECTIVA',3),(145,'2025-07-25','14:00:00','Revisión presupuesto anual','555-2003',2,NULL,NULL,1,'PERDIDO POR HORARIO','CITA EFECTIVA',3),(146,'2025-07-25','16:15:00','Capacitación nuevo personal','555-2004',2,NULL,NULL,1,'INVASIÓN DE CICLO',NULL,3),(147,'2025-07-25','10:00:00','Junta directiva mensual','555-2005',4,NULL,NULL,1,'PAGO ESPERADO',NULL,6),(148,'2025-07-25','08:30:00','cita modificada','555-4001',4,NULL,NULL,1,'REGISTRO','CITA NO EFECTIVA',3),(149,'2025-07-25','13:00:00','Reunión con cliente VIP','555-4002',4,NULL,NULL,1,'CITA CONFIRMADA',NULL,3),(150,'2025-07-25','09:45:00','Auditoria sistemas internos','555-4003',NULL,NULL,NULL,1,'CITA AGENDADA',NULL,6),(151,'2025-07-25','15:30:00','Presentación resultados Q2','555-4004',NULL,NULL,NULL,1,'CITA NO ATENDIDA','CITA EFECTIVA',6),(152,'2025-07-25','11:00:00','Workshop innovación digital','555-4005',NULL,NULL,NULL,1,'CITA AGENDADA',NULL,6),(153,'2025-07-25','10:15:00','sonido de cambio','555-6001',NULL,NULL,NULL,1,'CITA NO ATENDIDA',NULL,6),(154,'2025-07-25','14:30:00','Analisis competencia mercado','555-6002',NULL,NULL,NULL,1,'CITA AGENDADA',NULL,2),(155,'2025-07-25','08:00:00','Desayuno ejecutivo networking','555-6003',NULL,NULL,NULL,1,'CITA REAGENDADA','CITA EFECTIVA',2),(156,'2025-07-25','17:00:00','Cierre negociación contrato','555-6004',NULL,NULL,NULL,1,'CITA AGENDADA',NULL,2),(157,'2025-07-25','12:30:00','Revisión métricas performance','555-6005',NULL,NULL,NULL,1,'CITA AGENDADA',NULL,6),(158,'2025-07-25','09:30:00','Supervisión equipo ventas','555-9001',NULL,NULL,NULL,1,'PAGO ESPERADO','CITA EFECTIVA',3),(159,'2025-07-25','12:00:00','Negociación proveedor clave','555-9002',NULL,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',3),(160,'2025-07-25','10:30:00','Evaluación desempeño trimestral','555-9003',NULL,NULL,NULL,1,'CITA AGENDADA',NULL,3),(161,'2025-07-25','16:45:00','Planificación campaña publicitaria','555-9004',9,NULL,NULL,1,'CITA AGENDADA',NULL,3),(162,'2025-07-25','14:00:00','Reunión comité ejecutivo','555-9005',9,NULL,NULL,1,'CITA AGENDADA',NULL,3),(163,'2025-07-25','08:00:00','SONIDO','555-1000',4,NULL,NULL,1,'REGISTRO',NULL,3),(164,'2025-07-25','15:00:00','Entrenamiento liderazgo','555-1002',10,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',2),(165,'2025-07-25','11:15:00','Analisis indicadores KPI','555-1003',10,NULL,NULL,1,'CITA AGENDADA',NULL,2),(166,'2025-07-25','14:45:00','Sesión feedback 360','555-1004',10,NULL,NULL,1,'CITA AGENDADA',NULL,2),(167,'2025-07-25','09:15:00','Planeación estrategica anual','555-1005',6,NULL,NULL,1,'CITA AGENDADA',NULL,6),(168,'2025-07-25','11:00:00','Workshop desarrollo personal','555-1101',11,NULL,NULL,1,'CITA AGENDADA','CITA NO EFECTIVA',6),(169,'2025-07-25','16:30:00','Reunión recursos humanos','555-1102',11,NULL,NULL,1,'CITA AGENDADA',NULL,6),(170,'2025-07-25','09:00:00','Capacitación normativas legales','555-1103',11,NULL,NULL,1,'CITA AGENDADA',NULL,6),(171,'2025-07-25','13:30:00','Evaluación clima organizacional','555-1104',11,NULL,NULL,1,'CITA AGENDADA',NULL,6),(172,'2025-07-25','15:45:00','Sesión coaching ejecutivo','555-1105',11,NULL,NULL,1,'CITA AGENDADA',NULL,6),(173,'2025-07-25','10:45:00','Revisión portafolio inversiones','555-1201',12,NULL,NULL,1,'CITA AGENDADA','CITA NO EFECTIVA',3),(174,'2025-07-25','13:45:00','Analílisis riesgo crediticio','555-1202',12,NULL,NULL,1,'REGISTRO',NULL,3),(175,'2025-07-25','08:15:00','Comité finanzas corporativas','555-1203',12,NULL,NULL,1,'CITA AGENDADA',NULL,3),(176,'2025-07-25','15:00:00','Presentación estados financieros','555-1204',12,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',3),(177,'2025-07-25','11:30:00','Reunión auditoria externa','555-1205',12,NULL,NULL,1,'CITA AGENDADA',NULL,6),(178,'2025-07-25','09:15:00','Sesión innovación tecnológica','555-1301',20,NULL,NULL,1,'NO LE INTERESA','CITA NO EFECTIVA',2),(179,'2025-07-25','14:00:00','Revisión arquitectura sistemas','555-1302',13,NULL,NULL,1,'REGISTRO',NULL,3),(180,'2025-07-25','10:00:00','Workshop metodologías ágiles','555-1303',13,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',3),(181,'2025-07-25','17:30:00','Evaluación herramientas DevOps','555-1304',13,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',3),(182,'2025-07-25','13:00:00','Planeación roadmap tecnologico','555-1305',13,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',3),(183,'2025-07-25','08:45:00','Reunión equipo desarrollo','555-1401',14,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',3),(184,'2025-07-25','12:15:00','SONIDO','555-1402',14,NULL,NULL,1,'NO LE INTERESA','CITA EFECTIVA',3),(185,'2025-07-25','14:30:00','Capacitación nuevas tecnologías','555-1403',14,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',3),(186,'2025-07-25','16:00:00','Analisis performance aplicaciones','555-1404',14,NULL,NULL,1,'CITA NO ATENDIDA','CITA EFECTIVA',3),(187,'2025-07-25','10:30:00','Sesión arquitectura microservicios','555-1405',16,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',3),(188,'2025-07-25','11:45:00','Evaluación satisfacción cliente','555-1501',15,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',2),(189,'2025-07-25','15:30:00','PANKE','555-1502',15,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',2),(190,'2025-07-25','09:30:00','Analisis journey del cliente','555-1503',15,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',2),(191,'2025-07-25','13:00:00','Workshop experiencia usuario','555-1504',15,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',2),(192,'2025-07-25','16:15:00','Reunión equipo customer success','555-1505',15,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',6),(193,'2025-07-25','10:00:00','Supervisión cadena suministro','555-1601',16,NULL,NULL,1,'CITA NO ATENDIDA','CITA EFECTIVA',6),(194,'2025-07-25','13:15:00','Negociación contratos logística','555-1602',16,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',6),(195,'2025-07-25','08:30:00','Optimización procesos distribución','555-1603',16,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',6),(196,'2025-07-25','15:45:00','Evaluación proveedores estrategicos','555-1604',16,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',6),(197,'2025-07-25','12:00:00','Reunión comité operaciones','555-1605',16,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',2),(198,'2025-07-25','09:45:00','Sesión mentoría ejecutiva','555-1801',18,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',6),(199,'2025-07-25','14:15:00','Revisión estrategia corporativa','555-1802',18,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',6),(200,'2025-07-25','11:00:00','Workshop liderazgo transformacional','555-1803',18,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',6),(201,'2025-07-25','16:30:00','Evaluación cultura organizacional','555-1804',18,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',6),(202,'2025-07-25','13:45:00','Planeación sucesión ejecutiva','555-1805',18,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',6),(203,'2025-07-25','08:15:00','Anáílisis mercado internacional','555-2001',20,NULL,NULL,1,'CITA AGENDADA','CITA EFECTIVA',2),(204,'2025-07-25','11:15:00','Estrategia expansión regional','555-2002',20,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',2),(205,'2025-07-25','14:15:00','Evaluación alianzas estrategicas','555-2003',20,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',2),(206,'2025-07-25','17:15:00','Sesión innovación disruptiva','555-2004',20,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',2),(207,'2025-07-25','10:45:00','Reunión consejo administración','555-2005',6,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',3),(208,'2025-07-25','12:30:00','Supervisión seguridad informatica','555-2101',21,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',2),(209,'2025-07-25','16:00:00','Auditoria compliance regulatorio','555-2102',21,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',2),(210,'2025-07-25','09:15:00','Capacitación protección datos','555-2103',21,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',2),(211,'2025-07-25','12:45:00','Evaluación riesgos operacionales','555-2104',21,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',2),(212,'2025-07-25','15:00:00','Reunión comité riesgos','555-2105',21,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',3),(213,'2025-07-25','08:00:00','cita','1111 0',15,11,6,0,'CITA REAGENDADA','CITA EFECTIVA',3),(214,'2025-07-25','09:00:00','nueva citaaaaa','0000',NULL,11,15,0,'REGISTRO','CITA EFECTIVA',3),(215,'2025-07-25','08:00:00','cita','312312',15,4,12,0,'CITA AGENDADA','CITA EFECTIVA',6),(216,'2025-07-25','08:00:00','nueva cita 2','00',12,11,12,0,'REGISTRO','CITA EFECTIVA',2),(217,'2025-07-25','08:00:00',NULL,NULL,9,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',2),(218,'2025-07-25','09:00:00','SONIDO','0000',11,NULL,NULL,1,'REGISTRO','CITA EFECTIVA',6),(219,'2025-07-25','08:00:00','citaaa','000',9,16,6,0,NULL,NULL,3),(220,'2025-07-25','11:11:00','NUEVO CAMBIO','000',11,18,6,1,'CITA NO ATENDIDA','CITA NO EFECTIVA',16),(221,'2025-07-25','23:00:04','PRUEBA P28','555-TEST',2,2,6,1,'CITA AGENDADA',NULL,2),(222,'2025-07-25','09:00:00','Cita eliminada 1','555-0001',11,18,1,0,'CITA AGENDADA',NULL,2),(223,'2025-07-25','10:00:00','muestra solo las citas elimindas','555-0002',4,NULL,NULL,0,'CITA AGENDADA',NULL,6),(224,'2025-07-25','11:00:00','cita','555-0003',2,NULL,NULL,1,'CITA AGENDADA',NULL,6),(225,'2025-07-25','09:00:00','no te deja seleccionar más de una celda a la vez','000',NULL,18,1,0,NULL,NULL,6),(226,'2025-07-25','09:00:00','no se actulizaba por tener mismo id',NULL,NULL,11,6,0,NULL,NULL,6),(227,'2025-07-25','09:00:00','Cita desde el celular',NULL,NULL,NULL,NULL,1,NULL,NULL,6);
 /*!40000 ALTER TABLE `cita` ENABLE KEYS */;
 UNLOCK TABLES;
+ALTER DATABASE `ahj_ende_pinedah` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -90,6 +115,8 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `ahj_ende_pinedah` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ;
+ALTER DATABASE `ahj_ende_pinedah` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci ;
 /*!50003 SET @saved_cs_client      = @@character_set_client */ ;
 /*!50003 SET @saved_cs_results     = @@character_set_results */ ;
 /*!50003 SET @saved_col_connection = @@collation_connection */ ;
@@ -125,6 +152,7 @@ DELIMITER ;
 /*!50003 SET character_set_client  = @saved_cs_client */ ;
 /*!50003 SET character_set_results = @saved_cs_results */ ;
 /*!50003 SET collation_connection  = @saved_col_connection */ ;
+ALTER DATABASE `ahj_ende_pinedah` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci ;
 
 --
 -- Table structure for table `clase`
@@ -159,7 +187,7 @@ CREATE TABLE `clase` (
 
 LOCK TABLES `clase` WRITE;
 /*!40000 ALTER TABLE `clase` DISABLE KEYS */;
-INSERT INTO `clase` VALUES (1,1,'Bienvenida','Introducción general al sistema y sus funcionalidades',1,1,'2025-07-25 13:00:51',NULL,1),(2,1,'Navegación Básica','Aprende a navegar por las diferentes secciones',2,1,'2025-07-25 13:00:51',NULL,1),(3,1,'Funciones Avanzadas','Características avanzadas del sistema',3,1,'2025-07-25 13:00:51',NULL,1),(4,2,'Crear Citas','Cómo crear y programar nuevas citas',1,2,'2025-07-25 13:00:51',NULL,1),(5,2,'Modificar Citas','Edición y actualización de citas existentes',2,2,'2025-07-25 13:00:51',NULL,1),(6,2,'Reportes de Citas','Generación de reportes sobre citas',3,2,'2025-07-25 13:00:51',NULL,1),(7,2,'Filtros Avanzados','Uso de filtros para búsquedas específicas',4,2,'2025-07-25 13:00:51',NULL,1),(8,2,'Gestión de Estados','Manejo de estados y seguimiento de citas',5,2,'2025-07-25 13:00:51',NULL,1),(9,3,'Reportes Básicos','Introducción a la generación de reportes',1,4,'2025-07-25 13:00:51',NULL,1),(10,3,'Análisis de Datos','Interpretación y análisis de la información',2,4,'2025-07-25 13:00:51',NULL,1),(11,3,'Dashboards','Creación y personalización de dashboards',3,4,'2025-07-25 13:00:51',NULL,1),(12,3,'Exportación','Exportar datos a diferentes formatos',4,4,'2025-07-25 13:00:51',NULL,1),(17,5,'nueva clase de panke','nueva clase 1',1,4,'2025-07-28 13:50:32',NULL,1),(18,5,'nueva clase de panke 2','nueva clase 2',1,4,'2025-07-28 13:50:47',NULL,1),(19,5,'nueva clase de panke 3','nueva clase 3',1,4,'2025-07-28 13:51:01',NULL,1);
+INSERT INTO `clase` VALUES (1,1,'Bienvenida','Introducción general al sistema y sus funcionalidades',1,1,'2025-07-25 13:00:51',NULL,1),(2,1,'Navegación Básica','Aprende a navegar por las diferentes secciones',2,1,'2025-07-25 13:00:51',NULL,1),(3,1,'Funciones Avanzadas','Características avanzadas del sistema',3,1,'2025-07-25 13:00:51',NULL,1),(4,2,'Crear Citas','Cómo crear y programar nuevas citas',1,2,'2025-07-25 13:00:51',NULL,1),(5,2,'Modificar Citas','Edición y actualización de citas existentes',2,2,'2025-07-25 13:00:51',NULL,1),(6,2,'Reportes de Citas','Generación de reportes sobre citas',3,2,'2025-07-25 13:00:51',NULL,1),(7,2,'Filtros Avanzados','Uso de filtros para búsquedas específicas',4,2,'2025-07-25 13:00:51',NULL,1),(8,2,'Gestión de Estados','Manejo de estados y seguimiento de citas',5,2,'2025-07-25 13:00:51',NULL,1),(9,3,'Reportes Básicos','Introducción a la generación de reportes',1,4,'2025-07-25 13:00:51',NULL,1),(10,3,'Análisis de Datos','Interpretación y análisis de la información',2,4,'2025-07-25 13:00:51',NULL,1),(11,3,'Dashboards','Creación y personalización de dashboards',3,4,'2025-07-25 13:00:51',NULL,1),(12,3,'Exportación','Exportar datos a diferentes formatos',4,4,'2025-07-25 13:00:51',NULL,1),(17,5,'nueva clase de panke','nueva clase 1',1,4,'2025-07-28 13:50:32','2025-07-30 10:51:05',0),(18,5,'nueva clase de panke 2','nueva clase 2',1,4,'2025-07-28 13:50:47','2025-07-30 10:51:05',0),(19,5,'nueva clase de panke 3','nueva clase 3',1,4,'2025-07-28 13:51:01','2025-07-30 10:51:05',0);
 /*!40000 ALTER TABLE `clase` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -343,7 +371,7 @@ CREATE TABLE `curso` (
 
 LOCK TABLES `curso` WRITE;
 /*!40000 ALTER TABLE `curso` DISABLE KEYS */;
-INSERT INTO `curso` VALUES (1,'Introducción al Sistema','Curso básico para nuevos ejecutivos del sistema SICAM',1,'2025-07-25 13:00:51',NULL,1),(2,'Gestión de Citas','Manejo avanzado del sistema de citas y seguimiento',2,'2025-07-25 13:00:51',NULL,1),(3,'Reportes y Análisis','Generación de reportes y análisis de datos del sistema',4,'2025-07-25 13:00:51',NULL,1),(5,'nuevo curso','descripcion del nuevo curso',4,'2025-07-28 13:47:16',NULL,1);
+INSERT INTO `curso` VALUES (1,'Introducción al Sistema','Curso básico para nuevos ejecutivos del sistema SICAM',1,'2025-07-25 13:00:51',NULL,1),(2,'Gestión de Citas','Manejo avanzado del sistema de citas y seguimiento',2,'2025-07-25 13:00:51',NULL,1),(3,'Reportes y Análisis','Generación de reportes y análisis de datos del sistema',4,'2025-07-25 13:00:51',NULL,1),(5,'nuevo curso','descripcion del nuevo curso',4,'2025-07-28 13:47:16','2025-07-30 10:51:05',0);
 /*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -380,8 +408,80 @@ CREATE TABLE `ejecutivo` (
 
 LOCK TABLES `ejecutivo` WRITE;
 /*!40000 ALTER TABLE `ejecutivo` DISABLE KEYS */;
-INSERT INTO `ejecutivo` VALUES (1,'Juan Carlos Pérez','555-0123',NULL,1,16,6,'2025-07-25 10:52:34','Admisión'),(2,'María Fernanda López','555-0456',NULL,1,NULL,2,'2025-07-25 10:52:34','Administrativo'),(4,'Francisco Pineda','11',NULL,1,NULL,3,'2025-07-25 10:52:34','Administrativo'),(6,'Fatima Nava','555-111',NULL,1,4,3,'2025-07-25 10:52:34','Admisión'),(9,'Ana Garcia Silva','555-2001',NULL,1,NULL,16,'2025-07-25 10:52:34','Admisión'),(10,'Luis Rodriguez','555-2002',NULL,1,NULL,6,'2025-07-25 10:52:34','Administrativo'),(11,'Carmen Morales Vega','555-2003',NULL,1,NULL,2,'2025-07-25 10:52:34','Administrativo'),(12,'Diego Herrera Luna','555-3001',NULL,1,NULL,2,'2025-07-25 10:52:34','Admisión'),(13,'Sofia Mendoza','555-3002',NULL,1,2,2,'2025-07-25 10:52:34','Admisión'),(14,'Pablo Jimenez','555-3003',NULL,1,NULL,2,'2025-07-25 10:52:34','Admisión'),(15,'Elena Vargas','555-6001',NULL,1,NULL,3,'2025-07-25 10:52:34','Admisión'),(16,'Andres Castro','555-6002',NULL,1,NULL,6,'2025-07-25 10:52:34','Administrativo'),(18,'Eric Valenzuela','111-111',NULL,1,15,3,'2025-07-25 10:52:34','Administrativo'),(20,'Samuel Ortigoza','1111-111',NULL,1,NULL,13,'2025-07-25 10:52:34','Admisión'),(21,'Rodrigo Ramirez','0000-111',NULL,1,NULL,6,'2025-07-25 10:52:34','Admisión'),(47,'Director General Naucalpan','555-2001',NULL,1,NULL,2,'2025-07-25 10:52:34','Administrativo'),(48,'Coordinador Académico Naucalpan','555-2002',NULL,1,NULL,2,'2025-07-25 10:52:34','Administrativo'),(49,'Jefe de Admisiones Naucalpan','555-2003',NULL,1,NULL,2,'2025-07-25 10:52:34','Admisión'),(50,'Subdirector Administrativo Naucalpan','555-2011',NULL,1,NULL,2,'2025-07-25 10:52:34','Administrativo'),(51,'Gerente de Recursos Humanos Naucalpan','555-2012',NULL,1,NULL,2,'2025-07-25 10:52:34','Administrativo'),(52,'Coordinador de Servicios Escolares','555-2013',NULL,1,NULL,2,'2025-07-25 10:52:34','Administrativo'),(53,'Supervisor de Admisiones Naucalpan','555-2014',NULL,1,NULL,2,'2025-07-25 10:52:34','Admisión'),(54,'Asistente Administrativo 1 Naucalpan','555-2021',NULL,1,NULL,2,'2025-07-25 10:52:34','Administrativo'),(55,'Asistente Administrativo 2 Naucalpan','555-2022',NULL,1,NULL,2,'2025-07-25 10:52:34','Administrativo'),(56,'Especialista en Nóminas Naucalpan','555-2023',NULL,1,NULL,2,'2025-07-25 10:52:34','Administrativo'),(57,'Ejecutivo de Servicios Escolares 1','555-2024',NULL,1,NULL,2,'2025-07-25 10:52:34','Administrativo'),(58,'Ejecutivo de Servicios Escolares 2','555-2025',NULL,1,NULL,2,'2025-07-25 10:52:34','Administrativo'),(59,'Asesor de Admisiones 1 Naucalpan','555-2026',NULL,1,NULL,2,'2025-07-25 10:52:34','Admisión'),(60,'Asesor de Admisiones 2 Naucalpan','555-2027',NULL,1,NULL,2,'2025-07-25 10:52:34','Admisión'),(61,'Asesor de Admisiones 3 Naucalpan','555-2028',NULL,1,NULL,2,'2025-07-25 10:52:34','Admisión'),(62,'Ejecutivo de Atención al Cliente Naucalpan','555-2029',NULL,1,NULL,2,'2025-07-25 10:52:34','Admisión'),(63,'Director General Ecatepec','555-3001',NULL,1,NULL,3,'2025-07-25 10:52:34','Administrativo'),(64,'Coordinador Académico Ecatepec','555-3002',NULL,1,NULL,3,'2025-07-25 10:52:34','Administrativo'),(65,'Jefe de Admisiones Ecatepec','555-3003',NULL,1,NULL,3,'2025-07-25 10:52:34','Admisión'),(66,'Subdirector Académico Ecatepec','555-3011',NULL,1,NULL,3,'2025-07-25 10:52:34','Administrativo'),(67,'Gerente de Operaciones Ecatepec','555-3012',NULL,1,NULL,3,'2025-07-25 10:52:34','Administrativo'),(68,'Coordinador de Programas Ecatepec','555-3013',NULL,1,NULL,3,'2025-07-25 10:52:34','Administrativo'),(69,'Supervisor de Procesos Ecatepec','555-3014',NULL,1,NULL,3,'2025-07-25 10:52:34','Admisión'),(70,'Especialista Académico 1 Ecatepec','555-3021',NULL,1,NULL,3,'2025-07-25 10:52:34','Administrativo'),(71,'Especialista Académico 2 Ecatepec','555-3022',NULL,1,NULL,3,'2025-07-25 10:52:34','Administrativo'),(72,'Analista de Operaciones Ecatepec','555-3023',NULL,1,NULL,3,'2025-07-25 10:52:34','Administrativo'),(73,'Coordinador de Eventos Ecatepec','555-3024',NULL,1,NULL,3,'2025-07-25 10:52:34','Administrativo'),(74,'Asesor Educativo 1 Ecatepec','555-3025',NULL,1,NULL,3,'2025-07-25 10:52:34','Administrativo'),(75,'Asesor de Inscripciones 1 Ecatepec','555-3026',NULL,1,NULL,3,'2025-07-25 10:52:34','Admisión'),(76,'Asesor de Inscripciones 2 Ecatepec','555-3027',NULL,1,NULL,3,'2025-07-25 10:52:34','Admisión'),(77,'Ejecutivo de Seguimiento Ecatepec','555-3028',NULL,1,NULL,3,'2025-07-25 10:52:34','Admisión'),(78,'Representante de Ventas Ecatepec','555-3029',NULL,1,NULL,3,'2025-07-25 10:52:34','Admisión'),(79,'Director General Cuautitlán','555-6001',NULL,1,NULL,6,'2025-07-25 10:52:34','Administrativo'),(80,'Coordinador Académico Cuautitlán','555-6002',NULL,1,NULL,6,'2025-07-25 10:52:34','Administrativo'),(81,'Jefe de Admisiones Cuautitlán','555-6003',NULL,1,NULL,6,'2025-07-25 10:52:34','Admisión'),(82,'Subdirector de Finanzas Cuautitlán','555-6011',NULL,1,NULL,6,'2025-07-25 10:52:34','Administrativo'),(83,'Gerente de Tecnología Cuautitlán','555-6012',NULL,1,NULL,6,'2025-07-25 10:52:34','Administrativo'),(84,'Coordinador de Calidad Cuautitlán','555-6013',NULL,1,NULL,6,'2025-07-25 10:52:34','Administrativo'),(85,'Supervisor de Captación Cuautitlán','555-6014',NULL,1,NULL,6,'2025-07-25 10:52:34','Admisión'),(86,'Contador General Cuautitlán','555-6021',NULL,1,NULL,6,'2025-07-25 10:52:34','Administrativo'),(87,'Asistente Contable Cuautitlán','555-6022',NULL,1,NULL,6,'2025-07-25 10:52:34','Administrativo'),(88,'Técnico en Sistemas Cuautitlán','555-6023',NULL,1,NULL,6,'2025-07-25 10:52:34','Administrativo'),(89,'Auditor de Calidad Cuautitlán','555-6024',NULL,1,NULL,6,'2025-07-25 10:52:34','Administrativo'),(90,'Analista de Procesos Cuautitlán','555-6025','foto-ejecutivo-90-f22ed374af2844367fb75b6366b3c05f3136c004.png',1,NULL,16,'2025-07-25 10:52:34','Administrativo'),(91,'Ejecutivo de Captación 1 Cuautitlán','555-6026',NULL,1,NULL,6,'2025-07-25 10:52:34','Admisión'),(92,'Ejecutivo de Captación 2 Cuautitlán','555-6027',NULL,1,NULL,6,'2025-07-25 10:52:34','Admisión'),(93,'Promotor Educativo Cuautitlán','555-6028',NULL,1,NULL,6,'2025-07-25 10:52:34','Admisión'),(94,'Asesor Comercial Cuautitlán','555-6029',NULL,1,NULL,6,'2025-07-25 10:52:34','Admisión'),(95,'Director Regional Querétaro','555-8001',NULL,1,NULL,8,'2025-07-25 10:52:34','Administrativo'),(96,'Coordinador Académico Querétaro','555-8002',NULL,1,NULL,8,'2025-07-25 10:52:34','Administrativo'),(97,'Jefe de Admisiones Querétaro','555-8003',NULL,1,NULL,8,'2025-07-25 10:52:34','Admisión'),(98,'Subdirector Operativo Querétaro','555-8011',NULL,1,NULL,8,'2025-07-25 10:52:34','Administrativo'),(99,'Gerente Regional Querétaro','555-8012',NULL,1,NULL,8,'2025-07-25 10:52:34','Administrativo'),(100,'Coordinador de Desarrollo Querétaro','555-8013',NULL,1,NULL,8,'2025-07-25 10:52:34','Administrativo'),(101,'Supervisor Regional Querétaro','555-8014',NULL,1,NULL,8,'2025-07-25 10:52:34','Admisión'),(102,'Coordinador de Proyectos Querétaro','555-8021',NULL,1,NULL,8,'2025-07-25 10:52:34','Administrativo'),(103,'Especialista en Logística Querétaro','555-8022',NULL,1,NULL,8,'2025-07-25 10:52:34','Administrativo'),(104,'Analista Regional Querétaro','555-8023',NULL,1,NULL,8,'2025-07-25 10:52:34','Administrativo'),(105,'Coordinador de Capacitación Querétaro','555-8024',NULL,1,NULL,8,'2025-07-25 10:52:34','Administrativo'),(106,'Instructor Especializado Querétaro','555-8025',NULL,1,NULL,8,'2025-07-25 10:52:34','Administrativo'),(107,'Consultor de Admisiones 1 Querétaro','555-8026',NULL,1,NULL,8,'2025-07-25 10:52:34','Admisión'),(108,'Consultor de Admisiones 2 Querétaro','555-8027',NULL,1,NULL,8,'2025-07-25 10:52:34','Admisión'),(109,'Especialista en Mercadotecnia Querétaro','555-8028',NULL,1,NULL,8,'2025-07-25 10:52:34','Admisión'),(110,'Ejecutivo de Relaciones Públicas Querétaro','555-8029',NULL,1,NULL,8,'2025-07-25 10:52:34','Admisión'),(111,'Director General Pachuca','555-9001',NULL,1,NULL,9,'2025-07-25 10:52:34','Administrativo'),(112,'Coordinador Académico Pachuca','555-9002',NULL,1,NULL,9,'2025-07-25 10:52:34','Administrativo'),(113,'Jefe de Admisiones Pachuca','555-9003',NULL,1,NULL,9,'2025-07-25 10:52:34','Admisión'),(114,'Subdirector de Expansión Pachuca','555-9011',NULL,1,NULL,9,'2025-07-25 10:52:34','Administrativo'),(115,'Gerente de Nuevos Negocios Pachuca','555-9012',NULL,1,NULL,9,'2025-07-25 10:52:34','Administrativo'),(116,'Coordinador de Innovación Pachuca','555-9013',NULL,1,NULL,9,'2025-07-25 10:52:34','Administrativo'),(117,'Supervisor de Territorio Pachuca','555-9014',NULL,1,NULL,9,'2025-07-25 10:52:34','Admisión'),(118,'Coordinador de Expansión Pachuca','555-9021',NULL,1,NULL,9,'2025-07-25 10:52:34','Administrativo'),(119,'Analista de Mercados Pachuca','555-9022','foto-ejecutivo-119-d60e1b285785dc234ca117ff7abfe3915cbaa679.png',1,NULL,16,'2025-07-25 10:52:34','Administrativo'),(120,'Especialista en Desarrollo Pachuca','555-9023',NULL,1,NULL,9,'2025-07-25 10:52:34','Administrativo'),(121,'Coordinador de Investigación Pachuca','555-9024',NULL,1,NULL,9,'2025-07-25 10:52:34','Administrativo'),(122,'Analista de Innovación Pachuca','555-9025',NULL,1,NULL,9,'2025-07-25 10:52:34','Administrativo'),(123,'Ejecutivo Territorial 1 Pachuca','555-9026',NULL,1,NULL,9,'2025-07-25 10:52:34','Admisión'),(124,'Ejecutivo Territorial 2 Pachuca','555-9027',NULL,1,NULL,9,'2025-07-25 10:52:34','Admisión'),(125,'Representante de Zona Pachuca','555-9028',NULL,1,NULL,9,'2025-07-25 10:52:34','Admisión'),(126,'Coordinador de Campo Pachuca','555-9029',NULL,1,112,9,'2025-07-25 10:52:34','Admisión'),(127,'Director Regional San Luis Potosí','555-1301',NULL,1,NULL,13,'2025-07-25 10:52:34','Administrativo'),(128,'Coordinador Académico San Luis Potosí','555-1302',NULL,1,NULL,13,'2025-07-25 10:52:34','Administrativo'),(129,'Jefe de Admisiones San Luis Potosí','555-1303',NULL,1,NULL,13,'2025-07-25 10:52:34','Admisión'),(130,'Subdirector de Estrategia San Luis Potosí','555-1311',NULL,1,NULL,13,'2025-07-25 10:52:34','Administrativo'),(131,'Gerente de Comunicaciones San Luis Potosí','555-1312',NULL,1,NULL,13,'2025-07-25 10:52:34','Administrativo'),(132,'Coordinador de Excelencia San Luis Potosí','555-1313',NULL,1,NULL,13,'2025-07-25 10:52:34','Administrativo'),(133,'Supervisor de Estrategias San Luis Potosí','555-1314',NULL,1,NULL,13,'2025-07-25 10:52:34','Admisión'),(134,'Planificador Estratégico San Luis Potosí','555-1321',NULL,1,NULL,13,'2025-07-25 10:52:34','Administrativo'),(135,'Analista de Tendencias San Luis Potosí','555-1322',NULL,1,NULL,13,'2025-07-25 10:52:34','Administrativo'),(136,'Especialista en Comunicación San Luis Potosí','555-1323',NULL,1,NULL,13,'2025-07-25 10:52:34','Administrativo'),(137,'Coordinador de Estándares San Luis Potosí','555-1324',NULL,1,NULL,13,'2025-07-25 10:52:34','Administrativo'),(138,'Auditor de Excelencia San Luis Potosí','555-1325',NULL,1,NULL,13,'2025-07-25 10:52:34','Administrativo'),(139,'Ejecutivo Estratégico 1 San Luis Potosí','555-1326',NULL,1,NULL,13,'2025-07-25 10:52:34','Admisión'),(140,'Ejecutivo Estratégico 2 San Luis Potosí','555-1327',NULL,0,NULL,13,NULL,'Admisión'),(141,'Consultor de Posicionamiento San Luis Potosí','555-1328',NULL,0,NULL,13,NULL,'Admisión'),(142,'Especialista en Captación San Luis Potosí','555-1329',NULL,0,NULL,13,NULL,'Admisión'),(143,'Director General CDMX Portales','555-1601',NULL,0,NULL,16,NULL,'Administrativo'),(144,'Coordinador Académico CDMX Portales','555-1602',NULL,0,NULL,16,NULL,'Administrativo'),(145,'Jefe de Admisiones CDMX Portales','555-1603',NULL,0,NULL,16,NULL,'Admisión'),(146,'Subdirector Corporativo CDMX Portales','555-1611',NULL,0,NULL,16,NULL,'Administrativo'),(147,'Gerente de Alianzas CDMX Portales','555-1612',NULL,0,NULL,16,NULL,'Administrativo'),(148,'Coordinador de Transformación CDMX Portales','555-1613',NULL,0,NULL,16,NULL,'Administrativo'),(149,'Supervisor de Mercados CDMX Portales','555-1614',NULL,0,NULL,16,NULL,'Admisión'),(150,'Coordinador Corporativo CDMX Portales','555-1621',NULL,0,NULL,16,NULL,'Administrativo'),(151,'Especialista en Compliance CDMX Portales','555-1622',NULL,0,NULL,16,NULL,'Administrativo'),(152,'Gestor de Alianzas CDMX Portales','555-1623',NULL,0,NULL,16,NULL,'Administrativo'),(153,'Coordinador de Cambio CDMX Portales','555-1624',NULL,0,NULL,16,NULL,'Administrativo'),(154,'Analista de Transformación CDMX Portales','555-1625',NULL,0,NULL,16,NULL,'Administrativo'),(155,'Ejecutivo de Mercado 1 CDMX Portales','555-1626',NULL,0,NULL,16,NULL,'Admisión'),(156,'Ejecutivo de Mercado 2 CDMX Portales','555-1627',NULL,0,NULL,16,NULL,'Admisión'),(157,'Analista de Penetración CDMX Portales','555-1628','foto-ejecutivo-157-7888ec1a399584b8301cdb46fde2226692fcf606.png',0,NULL,16,NULL,'Admisión'),(158,'Especialista en Segmentación CDMX Portales','555-1629',NULL,0,NULL,16,NULL,'Admisión');
+INSERT INTO `ejecutivo` VALUES (1,'Juan Carlos Pérez','555-0123',NULL,1,16,6,'2025-07-30 13:43:39','Admisión'),(2,'María Fernanda López','555-0456',NULL,1,NULL,2,'2025-07-30 13:43:39','Administrativo'),(4,'Francisco Pineda','11',NULL,1,NULL,3,'2025-07-30 13:43:39','Administrativo'),(6,'Fatima Nava','555-111',NULL,1,4,3,'2025-07-30 13:43:39','Admisión'),(9,'Ana Garcia Silva','555-2001',NULL,1,NULL,16,'2025-07-30 13:43:39','Admisión'),(10,'Luis Rodriguez','555-2002',NULL,1,NULL,6,'2025-07-30 13:43:39','Administrativo'),(11,'Carmen Morales Vega','555-2003',NULL,1,NULL,2,'2025-07-30 13:43:39','Administrativo'),(12,'Diego Herrera Luna','555-3001',NULL,1,NULL,2,'2025-07-30 13:43:39','Admisión'),(13,'Sofia Mendoza','555-3002',NULL,1,2,2,'2025-07-30 13:43:39','Admisión'),(14,'Pablo Jimenez','555-3003',NULL,1,NULL,2,'2025-06-01 10:00:00','Admisión'),(15,'Elena Vargas','555-6001',NULL,1,NULL,3,'2025-07-30 13:43:39','Admisión'),(16,'Andres Castro','555-6002',NULL,1,NULL,6,'2025-07-30 13:43:39','Administrativo'),(18,'Eric Valenzuela','111-111',NULL,1,15,3,'2025-07-30 13:43:39','Administrativo'),(20,'Samuel Ortigoza','1111-111',NULL,1,NULL,13,'2025-07-30 13:43:39','Admisión'),(21,'Rodrigo Ramirez','0000-111',NULL,1,NULL,6,'2025-07-30 13:43:39','Admisión');
 /*!40000 ALTER TABLE `ejecutivo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `ejecutivo_equipo`
+--
+
+DROP TABLE IF EXISTS `ejecutivo_equipo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `ejecutivo_equipo` (
+  `id_eje_equipo` int(11) NOT NULL AUTO_INCREMENT,
+  `id_eje` int(10) unsigned NOT NULL COMMENT 'FK hacia ejecutivo',
+  `id_equipo` int(11) NOT NULL COMMENT 'FK hacia equipo',
+  `es_responsable` tinyint(1) DEFAULT 0 COMMENT '1=responsable/l├¡der, 0=miembro regular',
+  `fec_ingreso` datetime DEFAULT current_timestamp() COMMENT 'Fecha de ingreso al equipo',
+  `fec_salida` datetime DEFAULT NULL COMMENT 'Fecha de salida del equipo (para historial)',
+  `activo` tinyint(1) DEFAULT 1 COMMENT '1=activo en el equipo, 0=inactivo',
+  `notas` varchar(255) DEFAULT NULL COMMENT 'Notas sobre la participaci├│n',
+  PRIMARY KEY (`id_eje_equipo`),
+  UNIQUE KEY `unique_ejecutivo_equipo_activo` (`id_eje`,`id_equipo`,`activo`),
+  KEY `idx_activo` (`activo`),
+  KEY `idx_es_responsable` (`es_responsable`),
+  KEY `fk_eje_equipo_ejecutivo` (`id_eje`),
+  KEY `fk_eje_equipo_equipo` (`id_equipo`),
+  CONSTRAINT `fk_eje_equipo_ejecutivo` FOREIGN KEY (`id_eje`) REFERENCES `ejecutivo` (`id_eje`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_eje_equipo_equipo` FOREIGN KEY (`id_equipo`) REFERENCES `equipo` (`id_equipo`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='Relaci├│n N:N entre ejecutivos y equipos con roles';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `ejecutivo_equipo`
+--
+
+LOCK TABLES `ejecutivo_equipo` WRITE;
+/*!40000 ALTER TABLE `ejecutivo_equipo` DISABLE KEYS */;
+INSERT INTO `ejecutivo_equipo` VALUES (1,1,1,1,'2025-07-30 10:53:24',NULL,1,'Responsable fundador del equipo'),(2,2,1,0,'2025-07-30 10:53:24',NULL,1,'Miembro especialista en ventas'),(5,4,2,1,'2025-07-30 11:25:26',NULL,1,'Responsable'),(6,20,1,0,'2025-07-30 12:45:19',NULL,1,''),(7,11,1,0,'2025-07-30 12:45:23',NULL,1,''),(8,6,1,0,'2025-07-30 12:45:25',NULL,1,''),(9,14,1,0,'2025-07-30 12:45:28',NULL,1,''),(10,6,2,1,'2025-07-30 12:45:44',NULL,1,''),(11,20,2,0,'2025-07-30 12:45:47',NULL,1,''),(12,21,2,0,'2025-07-30 12:45:52',NULL,1,''),(13,1,9,1,'2025-07-30 12:48:05',NULL,1,'Creador y responsable inicial del equipo'),(14,1,10,1,'2025-07-30 13:22:56',NULL,1,'Creador y responsable inicial del equipo'),(15,14,10,0,'2025-07-30 13:23:29',NULL,1,''),(16,18,10,0,'2025-07-30 13:23:35',NULL,1,''),(17,1,11,1,'2025-07-30 13:28:28',NULL,1,'Creador y responsable inicial del equipo'),(18,9,11,0,'2025-07-30 13:42:28',NULL,1,'');
+/*!40000 ALTER TABLE `ejecutivo_equipo` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `equipo`
+--
+
+DROP TABLE IF EXISTS `equipo`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `equipo` (
+  `id_equipo` int(11) NOT NULL AUTO_INCREMENT,
+  `nom_equipo` varchar(100) NOT NULL COMMENT 'Nombre del equipo',
+  `des_equipo` varchar(255) DEFAULT NULL COMMENT 'Descripci├│n del equipo',
+  `emoji_equipo` varchar(10) DEFAULT '­ƒöÁ' COMMENT 'Emoji caracter├¡stico del equipo',
+  `id_cad` int(11) NOT NULL COMMENT 'FK hacia cadena',
+  `activo_equipo` tinyint(1) DEFAULT 1 COMMENT '1=activo, 0=inactivo',
+  `fec_creacion_equipo` datetime DEFAULT current_timestamp(),
+  `id_eje_creador` int(10) unsigned NOT NULL COMMENT 'FK hacia ejecutivo que cre├│ el equipo',
+  PRIMARY KEY (`id_equipo`),
+  KEY `idx_activo_equipo` (`activo_equipo`),
+  KEY `fk_equipo_cadena` (`id_cad`),
+  KEY `fk_equipo_creador` (`id_eje_creador`),
+  CONSTRAINT `fk_equipo_cadena` FOREIGN KEY (`id_cad`) REFERENCES `cadena` (`id_cad`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_equipo_creador` FOREIGN KEY (`id_eje_creador`) REFERENCES `ejecutivo` (`id_eje`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci COMMENT='Tabla de equipos de trabajo transversales a planteles';
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `equipo`
+--
+
+LOCK TABLES `equipo` WRITE;
+/*!40000 ALTER TABLE `equipo` DISABLE KEYS */;
+INSERT INTO `equipo` VALUES (1,'Proyecto Genesis','Equipo de ventas','🔵',1,1,'2025-07-30 10:53:24',1),(2,'Proyecto X','Equipo de atencion','🔴',1,1,'2025-07-30 10:53:24',1),(9,'Proyecto Y','proyecto y descripcion','🏆',1,0,'2025-07-30 12:48:05',1),(10,'Proyecto Y','YYYYY','🏆',1,1,'2025-07-30 13:22:56',1),(11,'Equipo Z','','💎',1,1,'2025-07-30 13:28:28',1);
+/*!40000 ALTER TABLE `equipo` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -455,9 +555,12 @@ DROP TABLE IF EXISTS `plantel`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `plantel` (
   `id_pla` int(11) NOT NULL,
+  `id_cad1` int(11) DEFAULT 1 COMMENT 'FK hacia cadena',
   `nom_pla` varchar(100) NOT NULL,
   `fec_pla` datetime NOT NULL DEFAULT current_timestamp(),
-  PRIMARY KEY (`id_pla`)
+  PRIMARY KEY (`id_pla`),
+  KEY `fk_plantel_cadena` (`id_cad1`),
+  CONSTRAINT `fk_plantel_cadena` FOREIGN KEY (`id_cad1`) REFERENCES `cadena` (`id_cad`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -467,7 +570,7 @@ CREATE TABLE `plantel` (
 
 LOCK TABLES `plantel` WRITE;
 /*!40000 ALTER TABLE `plantel` DISABLE KEYS */;
-INSERT INTO `plantel` VALUES (2,'Plantel Naucalpan','2025-07-09 10:52:31'),(3,'Plantel Ecatepec','2025-07-09 10:52:31'),(6,'Plantel Cuautitlán','2025-07-09 10:52:31'),(8,'Querétaro','2025-07-23 13:49:52'),(9,'Pachuca','2025-07-23 13:50:10'),(13,'San Luis Potosí','2025-07-23 13:50:42'),(16,'CDMX Portales','2025-07-23 13:50:37');
+INSERT INTO `plantel` VALUES (2,1,'Plantel Naucalpan','2025-07-09 10:52:31'),(3,1,'Plantel Ecatepec','2025-07-09 10:52:31'),(6,1,'Plantel Cuautitlán','2025-07-09 10:52:31'),(8,1,'Querétaro','2025-07-23 13:49:52'),(9,1,'Pachuca','2025-07-23 13:50:10'),(13,1,'San Luis Potosí','2025-07-23 13:50:42'),(16,1,'CDMX Portales','2025-07-23 13:50:37');
 /*!40000 ALTER TABLE `plantel` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -523,6 +626,51 @@ SET character_set_client = utf8;
 SET character_set_client = @saved_cs_client;
 
 --
+-- Temporary table structure for view `vista_ejecutivos_equipos`
+--
+
+DROP TABLE IF EXISTS `vista_ejecutivos_equipos`;
+/*!50001 DROP VIEW IF EXISTS `vista_ejecutivos_equipos`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vista_ejecutivos_equipos` AS SELECT
+ 1 AS `id_eje`,
+  1 AS `nom_eje`,
+  1 AS `tel_eje`,
+  1 AS `eli_eje`,
+  1 AS `id_pla`,
+  1 AS `nom_pla`,
+  1 AS `id_equipo`,
+  1 AS `nom_equipo`,
+  1 AS `emoji_equipo`,
+  1 AS `es_responsable`,
+  1 AS `fec_ingreso`,
+  1 AS `activo_en_equipo`,
+  1 AS `rol_equipo` */;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `vista_equipos_estadisticas`
+--
+
+DROP TABLE IF EXISTS `vista_equipos_estadisticas`;
+/*!50001 DROP VIEW IF EXISTS `vista_equipos_estadisticas`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `vista_equipos_estadisticas` AS SELECT
+ 1 AS `id_equipo`,
+  1 AS `nom_equipo`,
+  1 AS `des_equipo`,
+  1 AS `emoji_equipo`,
+  1 AS `activo_equipo`,
+  1 AS `nom_cad`,
+  1 AS `total_miembros`,
+  1 AS `total_responsables`,
+  1 AS `total_miembros_regulares`,
+  1 AS `responsables` */;
+SET character_set_client = @saved_cs_client;
+
+--
 -- Final view structure for view `vista_citas_plantel`
 --
 
@@ -539,6 +687,42 @@ SET character_set_client = @saved_cs_client;
 /*!50001 SET character_set_client      = @saved_cs_client */;
 /*!50001 SET character_set_results     = @saved_cs_results */;
 /*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vista_ejecutivos_equipos`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vista_ejecutivos_equipos`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = cp850 */;
+/*!50001 SET character_set_results     = cp850 */;
+/*!50001 SET collation_connection      = cp850_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vista_ejecutivos_equipos` AS select `e`.`id_eje` AS `id_eje`,`e`.`nom_eje` AS `nom_eje`,`e`.`tel_eje` AS `tel_eje`,`e`.`eli_eje` AS `eli_eje`,`e`.`id_pla` AS `id_pla`,`p`.`nom_pla` AS `nom_pla`,`eq`.`id_equipo` AS `id_equipo`,`eq`.`nom_equipo` AS `nom_equipo`,`eq`.`emoji_equipo` AS `emoji_equipo`,`ee`.`es_responsable` AS `es_responsable`,`ee`.`fec_ingreso` AS `fec_ingreso`,`ee`.`activo` AS `activo_en_equipo`,case when `ee`.`es_responsable` = 1 then 'Responsable' when `ee`.`es_responsable` = 0 then 'Miembro' else 'Sin equipo' end AS `rol_equipo` from (((`ejecutivo` `e` left join `plantel` `p` on(`e`.`id_pla` = `p`.`id_pla`)) left join `ejecutivo_equipo` `ee` on(`e`.`id_eje` = `ee`.`id_eje` and `ee`.`activo` = 1)) left join `equipo` `eq` on(`ee`.`id_equipo` = `eq`.`id_equipo` and `eq`.`activo_equipo` = 1)) where `e`.`eli_eje` = 1 order by `e`.`nom_eje`,`eq`.`nom_equipo` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `vista_equipos_estadisticas`
+--
+
+/*!50001 DROP VIEW IF EXISTS `vista_equipos_estadisticas`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = cp850 */;
+/*!50001 SET character_set_results     = cp850 */;
+/*!50001 SET collation_connection      = cp850_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `vista_equipos_estadisticas` AS select `eq`.`id_equipo` AS `id_equipo`,`eq`.`nom_equipo` AS `nom_equipo`,`eq`.`des_equipo` AS `des_equipo`,`eq`.`emoji_equipo` AS `emoji_equipo`,`eq`.`activo_equipo` AS `activo_equipo`,`c`.`nom_cad` AS `nom_cad`,count(case when `ee`.`activo` = 1 then 1 end) AS `total_miembros`,count(case when `ee`.`activo` = 1 and `ee`.`es_responsable` = 1 then 1 end) AS `total_responsables`,count(case when `ee`.`activo` = 1 and `ee`.`es_responsable` = 0 then 1 end) AS `total_miembros_regulares`,group_concat(case when `ee`.`activo` = 1 and `ee`.`es_responsable` = 1 then `e`.`nom_eje` end separator ', ') AS `responsables` from (((`equipo` `eq` left join `cadena` `c` on(`eq`.`id_cad` = `c`.`id_cad`)) left join `ejecutivo_equipo` `ee` on(`eq`.`id_equipo` = `ee`.`id_equipo`)) left join `ejecutivo` `e` on(`ee`.`id_eje` = `e`.`id_eje` and `e`.`eli_eje` = 1)) where `eq`.`activo_equipo` = 1 group by `eq`.`id_equipo`,`eq`.`nom_equipo`,`eq`.`des_equipo`,`eq`.`emoji_equipo`,`eq`.`activo_equipo`,`c`.`nom_cad` order by `eq`.`nom_equipo` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -549,4 +733,4 @@ SET character_set_client = @saved_cs_client;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-07-29 11:52:58
+-- Dump completed on 2025-07-30 13:54:53
