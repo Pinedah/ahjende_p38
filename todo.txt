@@ -1,0 +1,57 @@
+Actualmente las estructuras de ejecutivos operan a nivel plantel / sucursal. Sin embargo, de pronto se generan equipos a nivel MARCA / CADENA donde pueden haber ejecutivos de diversos planteles operando paralelamente tanto para su plantel asociado, como para el equipo o equipos asociados 🏢.
+Ejemplo:
+
+—————————————————
+CASO 1 - SIN EQUIPO
+
+ECATEPEC
+├── EJECUTIVO_1
+└── EJECUTIVO_2
+
+NAUCALPAN
+├── EJECUTIVO_3
+├── EJECUTIVO_4
+└── EJECUTIVO_5
+
+—————————————————
+CASO 2 - CON EQUIPO
+
+EQUIPO_A 🔵    EQUIPO_B 🔴
+
+ECATEPEC
+├── EJECUTIVO_1 🔵 —> EQUIPO_A
+└── EJECUTIVO_2 🔴 —> EQUIPO_B
+
+NAUCALPAN
+├── EJECUTIVO_3 🔵 —> EQUIPO_A
+├── EJECUTIVO_4 🔴 —> EQUIPO_B
+└── EJECUTIVO_5 —> SIN EQUIPO
+
+VISTA POR EQUIPOS:
+EQUIPO_A 🔵         EQUIPO_B 🔴
+├── EJECUTIVO_1 🔵  ├── EJECUTIVO_2 🔴
+└── EJECUTIVO_3 🔵  └── EJECUTIVO_4 🔴
+Estructura de cadena:
+• Se debe crear la tabla cadena con id_cad y nom_cad
+• Insertar registro: "AHJ ENDE" 🏷️
+• Los planteles se deben asociar a la cadena a través del FK id_cad1
+• Esto para asociar los equipos a la cadena 🔗
+Relación ejecutivo-equipo:
+Regularmente la relación de ejecutivos con equipos es de 1 ejecutivo solamente pertenece a un equipo. Aunque por temas de escalabilidad vale la pena contemplar que un ejecutivo, podría operar en paralelo en n equipos 🔄.
+Funcionalidades requeridas:
+• Generar un apartado en la vista de Ejecutivos donde se puedan generar registros de equipos 📋
+• Generar tabla en MySQL que permita la relación de 1 ejecutivo puede estar en uno o múltiples equipos operando 🗃️
+• Para estas visualizaciones, en esta primera fase no es necesario generar relaciones recursivas ⚡
+Gestión y permisos:
+• La gestión corre por cuentas de tipo administrativas 🔐
+• Se debe contemplar que cada equipo puede tener n responsables / líderes del equipo 👑
+• Si un ejecutivo NO Administrativo tiene permisos de Responsable de equipo puede gestionar al equipo 🛠️
+• La gestión de equipos deberá tener un switch para activar o desactivar los equipos y su despliegue 🔀
+Características del equipo:
+• El equipo tendrá nombre, y un emoji característico 🎯
+• Emoji que se desplegará en cada ejecutivo desplegado en el árbol después de su nom_eje como ilustra el CASO 2 📍
+• Así como la asociación o disociación de ejecutivos a los equipos generados ↔️
+Vista dinámica:
+Dicha incorporación implicará una vista / módulo dinámico (en función, claro de los n equipos creados) para visualizar a los ejecutivos asociados a dichas colecciones 🖥️.
+Impacto en citas:
+Citas también se verá afectado por los equipos, ya que un Administrativo podrá consultar los n equipos y filtrar de acuerdo a una multiselección, y si el ejecutivo pese a no ser Administrativo es Responsable / Líder puede visualizar lo de todo el equipo o los equipos donde está como RESPONSABLE 📊.
