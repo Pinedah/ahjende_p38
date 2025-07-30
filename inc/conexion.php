@@ -32,10 +32,7 @@
 		$pass = getenv('DB_PASS');
 		$database = getenv('DB_NAME');
 		$charset = getenv('DB_CHARSET');
-		$port = getenv('DB_PORT') ? intval(getenv('DB_PORT')) : 3306; // Puerto por defecto 3306
-	} else {
-		// error al no encontrar el archivo .env
-		die('Error: Archivo .env no encontrado en: ' . $envPath);
+		$port = getenv('DB_PORT') ? intval(getenv('DB_PORT')) : 3307; // Puerto por defecto 3307
 	}
 	
 	$connection = mysqli_connect($host, $user, $pass, $database, $port);

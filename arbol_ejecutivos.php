@@ -1094,10 +1094,20 @@
                     badgesCitas += '<span class="badge badge-citas-recursivas" onclick="verDetallesCitas(' + ejecutivo.id_eje + ', \'recursivas\')" title="Citas totales (recursivas): ' + badgesRecursivas + '">' + badgesRecursivas + '</span>';
                 }
                 
+                // NUEVO: Construir badges de equipos
+                var badgesEquipos = '';
+                if (ejecutivo.equipos && ejecutivo.equipos.length > 0) {
+                    ejecutivo.equipos.forEach(function(equipo) {
+                        var tituloRol = equipo.es_responsable ? 'Responsable' : 'Miembro';
+                        var claseRol = equipo.es_responsable ? 'badge-warning' : 'badge-info';
+                        badgesEquipos += '<span class="badge ' + claseRol + ' badge-equipo" title="' + tituloRol + ' del equipo">' + equipo.emoji_nombre + '</span>';
+                    });
+                }
+                
                 var nodo = {
                     id: ejecutivo.id_eje,
                     parent: ejecutivo.id_padre || '#',
-                    text: ejecutivo.nom_eje + ' <span class="badge badge-' + (ejecutivo.eli_eje == 1 ? 'success' : 'secondary') + ' status-badge">' + estado + '</span>' + badgesCitas,
+                    text: ejecutivo.nom_eje + ' <span class="badge badge-' + (ejecutivo.eli_eje == 1 ? 'success' : 'secondary') + ' status-badge">' + estado + '</span>' + badgesCitas + badgesEquipos,
                     icon: icono,
                     type: tipo,
                     data: ejecutivo

@@ -779,6 +779,16 @@
                                 <i class="fas fa-building"></i> Planteles
                             </button>
                         </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button class="btn btn-outline-warning" onclick="window.location.href='gestion_equipos.php'">
+                                <i class="fas fa-users-cog"></i> Equipos
+                            </button>
+                        </div>
+                        <div class="col-md-2 d-flex align-items-end">
+                            <button class="btn btn-outline-info" onclick="window.location.href='elearning_crud.php'">
+                                <i class="fas fa-graduation-cap"></i> E-Learning
+                            </button>
+                        </div>
                     </div>
                 </div>
                 

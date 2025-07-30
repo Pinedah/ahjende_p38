@@ -2568,6 +2568,16 @@
                 
                 console.log('  - Badges citas:', 'Propias:', badgesPropias, 'Recursivas:', badgesRecursivas);
                 
+                // NUEVO: Construir badges de equipos
+                var badgesEquipos = '';
+                if (ejecutivo.equipos && ejecutivo.equipos.length > 0) {
+                    ejecutivo.equipos.forEach(function(equipo) {
+                        var tituloRol = equipo.es_responsable ? 'Responsable' : 'Miembro';
+                        var claseRol = equipo.es_responsable ? 'badge-warning' : 'badge-info';
+                        badgesEquipos += '<span class="badge ' + claseRol + ' badge-equipo" title="' + tituloRol + ' del equipo">' + equipo.emoji_nombre + '</span>';
+                    });
+                }
+                
                 // Verificar si el padre existe en el mismo plantel
                 var parent = '#'; // Por defecto es raíz
                 if (ejecutivo.id_padre) {
@@ -2584,7 +2594,7 @@
                 
                 var nodo = {
                     'id': ejecutivo.id_eje,
-                    'text': '<div class="jstree-anchor-content"><span class="ejecutivo-nombre">' + ejecutivo.nom_eje + '</span><div class="jstree-anchor-indicators">' + semaforoHtml + plantelesEmojis + ' ' + badge + badgesCitas + '</div></div>',
+                    'text': '<div class="jstree-anchor-content"><span class="ejecutivo-nombre">' + ejecutivo.nom_eje + '</span><div class="jstree-anchor-indicators">' + semaforoHtml + plantelesEmojis + ' ' + badge + badgesCitas + badgesEquipos + '</div></div>',
                     'icon': icono,
                     'parent': parent,
                     'data': ejecutivo,
