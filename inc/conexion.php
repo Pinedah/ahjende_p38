@@ -33,6 +33,19 @@
 		$database = getenv('DB_NAME');
 		$charset = getenv('DB_CHARSET');
 		$port = getenv('DB_PORT') ? intval(getenv('DB_PORT')) : 3307; // Puerto por defecto 3307
+	} else {
+		// Configuración por defecto si no existe .env
+		$host = 'localhost';
+		$user = 'root';
+		$pass = '';
+		$database = 'ahj_ende_pinedah';
+		$charset = 'utf8mb4';
+		$port = 3307; // Puerto por defecto 3307
+		
+		// Crear archivo .env con configuración por defecto
+		$envContent = "DB_HOST=localhost\nDB_USER=root\nDB_PASS=\nDB_NAME=ahj_ende_pinedah\nDB_CHARSET=utf8mb4\nDB_PORT=3307";
+		file_put_contents($envPath, $envContent);
+		echo "<div class='alert alert-warning'>Archivo .env creado automáticamente con configuración por defecto</div>";
 	}
 	
 	$connection = mysqli_connect($host, $user, $pass, $database, $port);

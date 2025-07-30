@@ -655,7 +655,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 				$condicion_fecha = "AND c.cit_cit <= '$fecha_fin'";
 			}
 			
-			// Obtener todos los ejecutivos con conteo de citas particulares
+			// Obtener todos los ejecutivos con conteo de citas particulares Y información de equipos
 			$query = "SELECT e.id_eje, e.nom_eje, e.tel_eje, e.fot_eje, e.eli_eje, e.id_padre, e.id_pla, e.ult_eje,
 					         p.nom_pla as plantel_principal,
 					         COUNT(DISTINCT c.id_cit) as citas_propias,
@@ -668,12 +668,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					             WHEN TIMESTAMPDIFF(DAY, e.ult_eje, NOW()) >= 4 THEN 'rojo'
 					             ELSE 'sin_sesion'
 					         END as semaforo_sesion,
-					         TIMESTAMPDIFF(DAY, e.ult_eje, NOW()) as dias_desde_ultima_sesion
+					         TIMESTAMPDIFF(DAY, e.ult_eje, NOW()) as dias_desde_ultima_sesion,
+					         GROUP_CONCAT(DISTINCT CONCAT(eq.emoji_equipo, eq.nom_equipo, ':', CASE WHEN ee.es_responsable = 1 THEN 'R' ELSE 'M' END) SEPARATOR '|') as equipos_info
 					  FROM ejecutivo e 
 					  LEFT JOIN plantel p ON e.id_pla = p.id_pla 
 					  LEFT JOIN cita c ON e.id_eje = c.id_eje2 AND c.eli_cit = 1 $condicion_fecha
 					  LEFT JOIN planteles_ejecutivo pe ON e.id_eje = pe.id_eje
 					  LEFT JOIN plantel pa ON pe.id_pla = pa.id_pla
+					  LEFT JOIN ejecutivo_equipo ee ON e.id_eje = ee.id_eje AND ee.activo = 1
+					  LEFT JOIN equipo eq ON ee.id_equipo = eq.id_equipo AND eq.activo_equipo = 1
 					  GROUP BY e.id_eje, e.nom_eje, e.tel_eje, e.fot_eje, e.eli_eje, e.id_padre, e.id_pla, e.ult_eje, p.nom_pla
 					  ORDER BY e.eli_eje DESC, e.nom_eje ASC";
 			
@@ -683,8 +686,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			$datos = ejecutarConsulta($query, $connection);
 
 			if($datos !== false) {
-				// Procesar los datos para estructurar mejor los planteles asociados
+				// Procesar información de equipos para cada ejecutivo
 				foreach($datos as &$ejecutivo) {
+					$ejecutivo['equipos'] = [];
+					if($ejecutivo['equipos_info']) {
+						$equipos = explode('|', $ejecutivo['equipos_info']);
+						foreach($equipos as $equipoInfo) {
+							if(strpos($equipoInfo, ':') !== false) {
+								$partes = explode(':', $equipoInfo);
+								if(count($partes) >= 2) {
+									// Separar emoji del nombre del equipo
+									$emojiYNombre = $partes[0];
+									$rol = $partes[1];
+									
+									// Extraer emoji (primer carácter Unicode) y nombre
+									$emoji = mb_substr($emojiYNombre, 0, 1, 'UTF-8');
+									$nombreEquipo = mb_substr($emojiYNombre, 1, null, 'UTF-8');
+									
+									$ejecutivo['equipos'][] = [
+										'emoji' => $emoji,
+										'nombre' => $nombreEquipo,
+										'es_responsable' => ($rol === 'R')
+									];
+								}
+							}
+						}
+					}
+					
+					// Procesar los datos para estructurar mejor los planteles asociados
 					$ejecutivo['planteles_asociados_array'] = [];
 					if($ejecutivo['planteles_asociados']) {
 						$planteles = explode('|', $ejecutivo['planteles_asociados']);

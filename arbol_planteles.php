@@ -648,6 +648,68 @@
         /* Contenedor para los badges de citas */
         .badges-citas-container {
             display: inline-block;
+            margin-left: 5px;
+        }
+        
+        /* =====================================
+         * ESTILOS PARA BADGES DE EQUIPOS - PRÁCTICA 38
+         * ===================================== */
+        
+        /* Badge para equipos */
+        .badge-equipo {
+            margin-left: 3px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: all 0.2s;
+            padding: 2px 6px;
+            border-radius: 50%;
+            font-weight: bold;
+            position: relative;
+        }
+        
+        .badge-equipo:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Emoji de equipo con hover */
+        .equipo-emoji-hover {
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .equipo-emoji-hover:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 3px rgba(0,0,0,0.3));
+        }
+        
+        /* Tooltip personalizado para equipos */
+        .equipo-emoji-hover[title]:hover::after {
+            content: attr(title);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 5px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            white-space: nowrap;
+            z-index: 1000;
+            margin-bottom: 5px;
+        }
+        
+        .equipo-emoji-hover[title]:hover::before {
+            content: '';
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border: 5px solid transparent;
+            border-top-color: #333;
+            z-index: 1000;
+        }
             margin-left: 8px;
         }
         
@@ -2568,13 +2630,13 @@
                 
                 console.log('  - Badges citas:', 'Propias:', badgesPropias, 'Recursivas:', badgesRecursivas);
                 
-                // NUEVO: Construir badges de equipos
+                // Construir badges de equipos
                 var badgesEquipos = '';
                 if (ejecutivo.equipos && ejecutivo.equipos.length > 0) {
                     ejecutivo.equipos.forEach(function(equipo) {
                         var tituloRol = equipo.es_responsable ? 'Responsable' : 'Miembro';
-                        var claseRol = equipo.es_responsable ? 'badge-warning' : 'badge-info';
-                        badgesEquipos += '<span class="badge ' + claseRol + ' badge-equipo" title="' + tituloRol + ' del equipo">' + equipo.emoji_nombre + '</span>';
+                        var emojiConTooltip = '<span class="equipo-emoji-hover" title="' + tituloRol + ' del equipo: ' + equipo.nombre + '"' + `onclick="window.location.href='gestion_equipos.php'">` + equipo.emoji + '</span>';
+                        badgesEquipos += '<span class="badge badge-equipo ml-1">' + emojiConTooltip + '</span>';
                     });
                 }
                 
@@ -2589,12 +2651,12 @@
                         console.warn('  - Padre', ejecutivo.id_padre, 'no encontrado en el mismo plantel para ejecutivo', ejecutivo.nom_eje, '- se pondrá como raíz');
                     }
                 } else {
-                    console.log('  - Sin padre, será nodo raíz');
+                    //console.log('  - Sin padre, será nodo raíz');
                 }
                 
                 var nodo = {
                     'id': ejecutivo.id_eje,
-                    'text': '<div class="jstree-anchor-content"><span class="ejecutivo-nombre">' + ejecutivo.nom_eje + '</span><div class="jstree-anchor-indicators">' + semaforoHtml + plantelesEmojis + ' ' + badge + badgesCitas + badgesEquipos + '</div></div>',
+                    'text': '<div class="jstree-anchor-content"><span class="ejecutivo-nombre">' + ejecutivo.nom_eje + badgesEquipos +'</span><div class="jstree-anchor-indicators">' + semaforoHtml + plantelesEmojis + ' ' + badge + badgesCitas + '</div></div>',
                     'icon': icono,
                     'parent': parent,
                     'data': ejecutivo,
@@ -3541,7 +3603,7 @@
             
             // Limpiar inmediatamente sin delay
             limpiarEstadoDrag();
-            console.log('Estado de drag limpiado desde dnd_stop');
+            //console.log('Estado de drag limpiado desde dnd
             
             // Resetear variables inmediatamente
             draggedNode = null;

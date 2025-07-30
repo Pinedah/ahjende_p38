@@ -254,7 +254,6 @@
         <div class="main-container">
             <div class="header-section">
                 <h3><i class="fas fa-users"></i> Gestión de Equipos</h3>
-                <small>Sistema de equipos transversales a planteles - Práctica 38</small>
             </div>
             
             <!-- Navegación por pestañas -->
